@@ -16,7 +16,8 @@ body {
     #7dd7df,
     rgba(239, 228, 157, 0.8)
   );
-
+padding: 10px;
+  color: rgb(24, 18, 18);
   font-style: normal;
 }
 
