@@ -1,3 +1,10 @@
+import { useEffect } from 'react';
+
 export default function MoviesPage() {
-  return <div>Movies page</div>;
+  useEffect(() => {}, []);
+  return (
+    <div>
+      <h1>Movies page</h1>
+    </div>
+  );
 }

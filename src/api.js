@@ -1,15 +1,16 @@
 import axios from 'axios';
 
-const url = 'https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1';
+const trendingUrl = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US';
+const authorization =
+  'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjZWZkNTRhZWIxMWY4NGVkNTg3YjliYjk2MDQ0MTIxMiIsInN1YiI6IjY1Y2U1YTgwZDhhZjY3MDE2NDhmYTFlMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.udXVJL6GVzzlip1fAz4KHA8Wyq-os2y13kavV4CgmlQ';
 
-const options = {
-  headers: {
-    // Замість api_read_access_token вставте свій токен
-    Authorization: 'Bearer cefd54aeb11f84ed587b9bb960441212',
-  },
+export const getTrendingMovie = async abortController => {
+  const config = {
+    headers: {
+      Authorization: authorization,
+    },
+    signal: abortController.signal,
+  };
+  const { data } = await axios.get(trendingUrl, config);
+  return data;
 };
-
-axios
-  .get(url, options)
-  .then(response => console.log(response))
-  .catch(err => console.error(err));

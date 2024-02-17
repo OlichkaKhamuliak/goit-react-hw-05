@@ -1,0 +1,23 @@
+.item {
+  position: relative;
+  border: 1px solid gray;
+  padding: 2px;
+  transition: scale var(--animation);
+}
+.item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  scale: 1.03;
+}
+.image {
+}
+.caption {
+  position: absolute;
+  bottom: 0; /* Розміщуємо назву фільму у нижній частині */
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 7px;
+  text-align: center;
+  margin: 2px;
+}
