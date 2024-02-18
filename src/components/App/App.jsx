@@ -1,19 +1,19 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import HomePage from '../../pages/HomePage';
-import { NavBar } from '../NavBar/NavBar';
-import MoviesPage from '../../pages/MoviesPage';
-import NotFoundPage from '../../pages/NotFoundPage';
+import MoviePage from '../../pages/MoviePage.jsx';
+import { Header } from '../Header/Header';
+import { SearchMovie } from '../SearchForm/SearchForm.jsx';
 
 export const App = () => {
   return (
-    <div>
-      <NavBar />
+    <Routes>
+      <Route path="/" element={<Header />}>
+        <Route index element={<HomePage />} />
+        <Route path="/movies" element={<SearchMovie />} />
+        <Route path="/movies/:movieId" element={<MoviePage />} />
 
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/movies" element={<MoviesPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </div>
+        <Route path="*" element={<Navigate to="/" />} />
+      </Route>
+    </Routes>
   );
 };

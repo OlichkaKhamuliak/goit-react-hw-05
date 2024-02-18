@@ -1,16 +1,21 @@
 import axios from 'axios';
 
-const trendingUrl = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US';
-const authorization =
-  'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjZWZkNTRhZWIxMWY4NGVkNTg3YjliYjk2MDQ0MTIxMiIsInN1YiI6IjY1Y2U1YTgwZDhhZjY3MDE2NDhmYTFlMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.udXVJL6GVzzlip1fAz4KHA8Wyq-os2y13kavV4CgmlQ';
+axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
-export const getTrendingMovie = async abortController => {
-  const config = {
-    headers: {
-      Authorization: authorization,
-    },
-    signal: abortController.signal,
-  };
-  const { data } = await axios.get(trendingUrl, config);
+const API_KEY = 'cefd54aeb11f84ed587b9bb960441212';
+
+export const getTrendingMovie = async controller => {
+  const { data } = await axios.get('trending/movie/day?language=en-US', {
+    params: { api_key: API_KEY },
+    signal: controller.signal,
+  });
+  return data;
+};
+
+export const fetchMovie = async ({ controller, id }) => {
+  const { data } = await axios.get(`movie/${id}`, {
+    params: { api_key: API_KEY },
+    signal: controller.signal,
+  });
   return data;
 };
