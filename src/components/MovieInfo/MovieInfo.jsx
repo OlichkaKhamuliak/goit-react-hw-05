@@ -39,12 +39,18 @@ export const MovieInfo = ({
         </div>
       </div>
       <div>
-        <NavLink to="cast" className={buildLinkClass}>
-          Cast
-        </NavLink>
-        <NavLink to="rewiews" className={buildLinkClass}>
-          Rewiews
-        </NavLink>
+        <ul className={css.subpagesList}>
+          <li className={css.subpagesItem}>
+            <NavLink to="cast" className={buildLinkClass}>
+              Cast
+            </NavLink>
+          </li>
+          <li className={css.subpagesItem}>
+            <NavLink to="reviews" className={buildLinkClass}>
+              Reviews
+            </NavLink>
+          </li>
+        </ul>
       </div>
       <Outlet />
     </div>

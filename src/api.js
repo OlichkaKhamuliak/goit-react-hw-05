@@ -33,7 +33,7 @@ export const getCredits = async ({ abortController, id }) => {
     params: { api_key: API_KEY },
     signal: abortController.signal,
   });
-  return data;
+  return data.cast;
 };
 
 export const getReviews = async ({ abortController, id }) => {

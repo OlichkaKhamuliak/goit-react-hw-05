@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useFetchMovie } from '../hooks/useFetchMovie';
-import { Navigate, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { MovieInfo } from '../components/MovieInfo/MovieInfo';
 import { Loader } from '../components/Loader/Loader';
 import { GoBackBtn } from '../components/GoBackBtn/GoBackBtn';
@@ -16,7 +16,7 @@ export default function MoviePage() {
     <div>
       <GoBackBtn path={goBack.current}>Back to movies</GoBackBtn>
       {loading && <Loader />}
-      {error && <Navigate to="/" replace />}
+      {error && <p>{error.message}</p>}
       {movie && <MovieInfo movie={movie} />}
     </div>
   );
