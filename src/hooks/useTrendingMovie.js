@@ -11,7 +11,7 @@ export const useTrendingMovies = () => {
     setLoading(true);
     const fetchData = async () => {
       try {
-        const { results } = await getTrendingMovie({ controller: controller.signal });
+        const { results } = await getTrendingMovie({ abortController: controller });
         setTrendFilms(results);
       } catch (error) {
         if (error.code !== 'ERR_CANCELED') {

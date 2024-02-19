@@ -15,7 +15,7 @@ export const useFetchMovie = () => {
     setLoading(true);
     const fetchData = async () => {
       try {
-        const movieData = await fetchMovie({ controller: controller.signal, id: movieId });
+        const movieData = await fetchMovie({ abortController: controller, id: movieId });
         setMovie(movieData);
       } catch (error) {
         if (error.code !== 'ERR_CANCELED') {
