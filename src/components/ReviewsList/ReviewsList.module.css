@@ -1,0 +1,18 @@
+.list {
+  display: flex;
+  gap: 25px;
+  flex-direction: column;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: #ffffff6d;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.author {
+  font-size: 25px;
+}

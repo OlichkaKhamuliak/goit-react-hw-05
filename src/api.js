@@ -20,9 +20,9 @@ export const fetchMovie = async ({ abortController, id }) => {
   return data;
 };
 
-export const searchMovie = async ({ abortController, keyword }) => {
+export const searchMovie = async ({ abortController, query, page }) => {
   const { data } = await axios.get('search/movie', {
-    params: { api_key: API_KEY, query: keyword },
+    params: { api_key: API_KEY, query, page },
     signal: abortController.signal,
   });
   return data;
@@ -41,5 +41,5 @@ export const getReviews = async ({ abortController, id }) => {
     params: { api_key: API_KEY },
     signal: abortController.signal,
   });
-  return data;
+  return data.results;
 };

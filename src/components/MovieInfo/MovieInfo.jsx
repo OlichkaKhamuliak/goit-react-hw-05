@@ -39,6 +39,7 @@ export const MovieInfo = ({
         </div>
       </div>
       <div>
+        <p className={css.subpagesTitle}>Additional information</p>
         <ul className={css.subpagesList}>
           <li className={css.subpagesItem}>
             <NavLink to="cast" className={buildLinkClass}>

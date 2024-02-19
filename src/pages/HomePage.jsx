@@ -9,7 +9,7 @@ export default function HomePage() {
     <div>
       <HomeTitle>Trending today</HomeTitle>
       {loading && <Loader />}
-      {error && <p>OOOOOPPPPPSSSS!!! EROOOR!!!!!</p>}
+      {error && <p>{error.message}</p>}
       {trendFilms.length > 0 && <MoviesList films={trendFilms} />}
     </div>
   );

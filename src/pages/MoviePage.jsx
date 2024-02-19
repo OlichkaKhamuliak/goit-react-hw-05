@@ -10,7 +10,6 @@ export default function MoviePage() {
   const location = useLocation();
   const goBack = useRef(location?.state?.from ?? '/');
   // console.log(location);
-  console.log(movie);
   useEffect(() => {}, []);
   return (
     <div>
