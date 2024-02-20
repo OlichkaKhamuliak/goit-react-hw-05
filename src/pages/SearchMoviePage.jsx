@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { searchMovie } from '../api';
 import SearchForm from '../components/SearchForm/SearchForm';
 import { useSearchParams } from 'react-router-dom';
@@ -19,16 +19,28 @@ const SearchMoviePage = () => {
   const [error, setError] = useState(null);
 
   const [params, setParams] = useSearchParams();
-  const query = params.get('query') ?? '';
-  console.log(query);
-  //   const page = params.get('page') ?? '1';
+  const [query, setQuery] = useState(params.get('query') ?? '');
+
+  //Дозволяє зберігати попереднє значення змінної. Використовуючи цей хук, отримуєм доступ до попереднього значення змінної у компоненті.
+  const prevQuery = usePrevious(query);
+
+  function usePrevious(value) {
+    const ref = useRef();
+    useEffect(() => {
+      ref.current = value;
+    });
+    return ref.current;
+  }
+
   const changeQuery = newQuery => {
     if (!newQuery.trim()) {
       return;
     }
     setEmptyResults(false);
-    setSearchFilm([]);
+    // setSearchFilm([]);
     setVisibleBtn(false);
+    setQuery(newQuery);
+
     setParams(params => {
       const newParams = new URLSearchParams(params);
       newParams.set('query', newQuery);
@@ -38,6 +50,11 @@ const SearchMoviePage = () => {
 
   useEffect(() => {
     if (!query) return;
+    //Перевіряємо чи значення в інпуті при сабміті співпадає з попереднім
+    if (query !== prevQuery) {
+      setSearchFilm([]);
+      setPage(1);
+    }
     const controller = new AbortController();
     const fetchData = async () => {
       try {
@@ -49,6 +66,12 @@ const SearchMoviePage = () => {
         });
         if (results.length === 0) {
           setEmptyResults(true);
+          //Очищуємо query in params коли значення не знайдено
+          setParams(params => {
+            const newParams = new URLSearchParams(params);
+            newParams.set('query', '');
+            return newParams;
+          });
           return;
         }
         setSearchFilm(prevResults => [...prevResults, ...results]);
@@ -63,7 +86,7 @@ const SearchMoviePage = () => {
     };
     fetchData();
     return () => controller.abort();
-  }, [query, page]);
+  }, [query, page, prevQuery, setParams]);
 
   const handleLoadMore = () => {
     setPage(prevPage => prevPage + 1);

@@ -20,7 +20,6 @@ export const useFetchMovie = () => {
       } catch (error) {
         if (error.code !== 'ERR_CANCELED') {
           setError(error);
-          console.log(error);
         }
       } finally {
         setLoading(false);
