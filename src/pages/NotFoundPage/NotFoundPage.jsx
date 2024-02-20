@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import { GoBackBtn } from '../../components/GoBackBtn/GoBackBtn';
 import css from './NotFoundPage.module.css';
-import gif from '../../assets/404-page-design-animation.gif';
+// import gif from '../../assets/404-page-design-animation.gif';
+import img from '../../assets/404Error.jpg';
 
 const NotFoundPage = () => {
   const navigate = useNavigate();
@@ -41,7 +42,8 @@ const NotFoundPage = () => {
         <p className={css.seconds}>{secondsLeft}</p>
         <p className={css.text}>seconds...</p>
       </div>
-      <img src={gif} className={css.gif} alt="404 page design animation gif" />
+      {/* <img src={gif} className={css.gif} alt="404 page design animation gif" /> */}
+      <img src={img} className={css.gif} alt="404 page img" />
     </div>
   );
 };

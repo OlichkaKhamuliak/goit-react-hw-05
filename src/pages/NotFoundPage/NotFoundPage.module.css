@@ -1,8 +1,10 @@
 .title {
   text-align: center;
+  margin: 0 auto;
   margin-top: 60px;
   margin-bottom: 30px;
   font-size: 30px;
+  max-width: 450px;
 }
 .textWrap {
   display: flex;
@@ -11,10 +13,15 @@
   justify-content: center;
   margin-bottom: 25px;
   align-items: center;
+  flex-wrap: wrap;
 }
 .text,
 .seconds {
   font-size: 20px;
+}
+.text {
+  color: rgb(21, 45, 21);
+  background-color: #ffffff78;
 }
 
 .seconds {
@@ -31,6 +38,8 @@
 @media screen and (min-width: 768px) {
   .gif {
     top: 20px;
+    height: 90vh;
+
     position: relative; /* Зробити контейнер зображення відносно позиціонування */
   }
   .textWrap {
@@ -40,8 +49,8 @@
     transform: translate(-50%, -50%); /* Зробити центрування тексту */
     text-align: center; /* Вирівняти текст по центру */
     z-index: 1111;
-    min-width: 500px;
     gap: 8px;
+    min-width: 700px;
   }
   .text,
   .seconds {
@@ -56,6 +65,7 @@
     z-index: 1111;
     font-size: 35px;
     min-width: 500px;
+    max-width: 750px;
   }
   .seconds {
     color: rgb(15, 117, 212);
@@ -64,7 +74,7 @@
 }
 @media screen and (min-width: 1280px) {
   .textWrap {
-    top: 350px;
+    top: 290px;
     gap: 10px;
   }
   .text,
@@ -73,7 +83,7 @@
   }
   .title {
     font-size: 45px;
-    top: 180px;
+    top: 130px;
   }
   .seconds {
     font-size: 50px;
