@@ -3,4 +3,5 @@
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-gap: 15px; /* Зазор між картками */
   margin-top: 25px;
+  align-items: end;
 }

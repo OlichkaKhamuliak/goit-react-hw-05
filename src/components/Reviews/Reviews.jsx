@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { getReviews } from '../../api';
-import { Loader } from '../Loader/Loader';
 import { useParams } from 'react-router-dom';
 import css from './Reviews.module.css';
 import { ReviewsList } from '../ReviewsList/ReviewsList';
+import { Loader } from '../Loader/Loader';
 
 export const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -14,9 +14,9 @@ export const Reviews = () => {
 
   useEffect(() => {
     const controller = new AbortController();
-    setLoading(true);
     const fetchData = async () => {
       try {
+        setLoading(true);
         const reviewsData = await getReviews({ abortController: controller, id: movieId });
         setReviews(reviewsData);
         setTimeout(() => {

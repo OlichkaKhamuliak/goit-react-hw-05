@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCredits } from '../../api';
-import { Loader } from '../Loader/Loader';
 import { CastList } from '../CastList/CastList';
 import css from './Cast.module.css';
+import { Loader } from '../Loader/Loader';
 
 export const Cast = () => {
   const [actors, setActors] = useState([]);
@@ -14,9 +14,9 @@ export const Cast = () => {
 
   useEffect(() => {
     const controller = new AbortController();
-    setLoading(true);
     const fetchData = async () => {
       try {
+        setLoading(true);
         const castData = await getCredits({ abortController: controller, id: movieId });
         setActors(castData);
         setTimeout(() => {

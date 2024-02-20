@@ -8,9 +8,9 @@ export const useTrendingMovies = () => {
 
   useEffect(() => {
     const controller = new AbortController();
-    setLoading(true);
     const fetchData = async () => {
       try {
+        setLoading(true);
         const { results } = await getTrendingMovie({ abortController: controller });
         setTrendFilms(results);
       } catch (error) {

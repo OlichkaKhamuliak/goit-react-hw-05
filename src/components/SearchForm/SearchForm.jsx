@@ -33,7 +33,8 @@ export const SearchForm = ({ onSubmit }) => {
           onChange={handleChange}
         />
         <button className={css.button} type="submit">
-          <FcSearch className={css.svg} size="30px" />
+          Search
+          <FcSearch className={css.svg} size="20px" />
         </button>
       </form>
     </div>

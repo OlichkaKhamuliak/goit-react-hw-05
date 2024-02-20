@@ -1,8 +1,8 @@
 .toaster {
   padding: 5px !important;
-  background-color: rgba(255, 255, 255, 0.68) !important;
+  background-color: rgba(255, 255, 255, 0.8) !important;
   max-width: 100% !important;
-  margin-top: 5%;
+  margin-top: 25%;
   margin-left: 15px;
   margin-right: 15px;
 }

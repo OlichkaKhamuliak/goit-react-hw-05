@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react';
 import { searchMovie } from '../api';
 import { SearchForm } from '../components/SearchForm/SearchForm';
 import { useSearchParams } from 'react-router-dom';
-import { Loader } from '../components/Loader/Loader';
 import { MoviesList } from '../components/MoviesList/MoviesList';
 import { ErrorMessage } from '../components/ErrorMessage/ErrorMessage';
 import { LoadMoreBtn } from '../components/LoadMoreBtn/LoadMoreBtn';
 import { Toaster } from 'react-hot-toast';
 import css from '../components/ErrorMessage/ErrorMessage.module.css';
+import { Loader } from '../components/Loader/Loader';
 
 export const SearchMoviePage = () => {
   const [searchFilms, setSearchFilm] = useState([]);
@@ -27,16 +27,23 @@ export const SearchMoviePage = () => {
       return;
     }
     setEmptyResults(false);
-
-    params.set('query', newQuery);
-    setParams(params);
+    setSearchFilm([]);
+    setVisibleBtn(false);
+    setParams(params => {
+      const newParams = new URLSearchParams(params);
+      newParams.set('query', newQuery);
+      return newParams;
+    });
   };
 
   useEffect(() => {
+    if (!query) {
+      return;
+    }
     const controller = new AbortController();
-    setLoading(true);
     const fetchData = async () => {
       try {
+        setLoading(true);
         const { results, total_pages } = await searchMovie({
           abortController: controller,
           query: query,

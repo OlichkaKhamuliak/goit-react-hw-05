@@ -12,8 +12,8 @@ export const useFetchMovie = () => {
 
   useEffect(() => {
     const controller = new AbortController();
-    setLoading(true);
     const fetchData = async () => {
+      setLoading(true);
       try {
         const movieData = await fetchMovie({ abortController: controller, id: movieId });
         setMovie(movieData);
