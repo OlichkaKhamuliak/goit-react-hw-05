@@ -2,10 +2,10 @@ import { Route, Routes } from 'react-router-dom';
 import HomePage from '../../pages/HomePage';
 import MoviePage from '../../pages/MoviePage.jsx';
 import { Header } from '../Header/Header';
-import NotFoundPage from '../../pages/NotFoundPage.jsx';
 import { Cast } from '../Cast/Cast.jsx';
 import { Reviews } from '../Reviews/Reviews.jsx';
 import { SearchMoviePage } from '../../pages/SearchMoviePage.jsx';
+import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage.jsx';
 
 export const App = () => {
   return (
