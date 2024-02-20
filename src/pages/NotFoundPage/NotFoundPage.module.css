@@ -30,24 +30,24 @@
   font-size: 30px;
 }
 
-.gif {
+.img {
   margin-top: 20px;
   margin: 0 auto;
 }
 
 @media screen and (min-width: 768px) {
-  .gif {
+  .img {
     top: 20px;
     height: 90vh;
 
-    position: relative; /* Зробити контейнер зображення відносно позиціонування */
+    position: relative;
   }
   .textWrap {
-    position: absolute; /* Зробити текст абсолютно позиціонованим в контейнері */
-    top: 245px; /* Розмістити текст вертикально по центру контейнера */
-    left: 50%; /* Розмістити текст горизонтально по центру контейнера */
-    transform: translate(-50%, -50%); /* Зробити центрування тексту */
-    text-align: center; /* Вирівняти текст по центру */
+    position: absolute;
+    top: 245px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
     z-index: 1111;
     gap: 8px;
     min-width: 700px;
@@ -60,8 +60,8 @@
     position: absolute;
     top: 100px;
     left: 50%;
-    transform: translate(-50%, -50%); /* Зробити центрування тексту */
-    text-align: center; /* Вирівняти текст по центру */
+    transform: translate(-50%, -50%);
+    text-align: center;
     z-index: 1111;
     font-size: 35px;
     min-width: 500px;
