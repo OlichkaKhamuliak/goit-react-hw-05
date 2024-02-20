@@ -16,7 +16,11 @@ const NotFoundPage = () => {
 
     // Перенаправляємо користувача на головну сторінку після 10 секунд
     const timeout = setTimeout(() => {
-      navigate('/');
+      if (location.pathname.startsWith('/movies')) {
+        navigate('/movies');
+      } else {
+        navigate('/');
+      }
     }, 5000); // 5 секунд
 
     // При знищенні компонента очищаємо таймер
@@ -31,7 +35,9 @@ const NotFoundPage = () => {
       {/* <GoBackBtn path="/">Back to home page</GoBackBtn> */}
       <h2 className={css.title}>Oops! It seems like the page you`re looking for doesn`t exist.</h2>
       <div className={css.textWrap}>
-        <p className={css.text}>Redirecting to home page in</p>
+        <p className={css.text}>
+          Redirecting to {location.pathname.startsWith('/movies') ? 'movies' : 'home'} page in
+        </p>
         <p className={css.seconds}>{secondsLeft}</p>
         <p className={css.text}>seconds...</p>
       </div>

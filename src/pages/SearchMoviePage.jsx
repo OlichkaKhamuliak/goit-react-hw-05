@@ -100,7 +100,7 @@ const SearchMoviePage = () => {
         <ErrorMessage>Sorry, but no films were found for your query.😭</ErrorMessage>
       )}
       {loading ? <Loader /> : visibleBtn && <LoadMoreBtn onClick={handleLoadMore} />}
-      {error && <p>{error.message}</p>}
+      {error && <ErrorMessage>Ooooppps!!! Try to reload the page...</ErrorMessage>}
       <Toaster
         containerStyle={{
           left: 0,
