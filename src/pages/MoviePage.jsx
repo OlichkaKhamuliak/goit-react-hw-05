@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { useFetchMovie } from '../hooks/useFetchMovie';
 import { useLocation } from 'react-router-dom';
 import MovieInfo from '../components/MovieInfo/MovieInfo';
@@ -10,7 +10,6 @@ const MoviePage = () => {
   const location = useLocation();
   const goBack = useRef(location?.state?.from ?? '/');
   // console.log(location);
-  useEffect(() => {}, []);
   return (
     <div>
       <GoBackBtn path={goBack.current}>Back to movies</GoBackBtn>

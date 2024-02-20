@@ -37,9 +37,7 @@ const SearchMoviePage = () => {
   };
 
   useEffect(() => {
-    if (!query) {
-      return;
-    }
+    if (!query) return;
     const controller = new AbortController();
     const fetchData = async () => {
       try {

@@ -16,6 +16,7 @@ const Cast = () => {
     const controller = new AbortController();
     const fetchData = async () => {
       try {
+        if (!movieId) return;
         setLoading(true);
         const castData = await getCredits({ abortController: controller, id: movieId });
         setActors(castData);

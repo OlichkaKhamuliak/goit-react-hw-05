@@ -16,6 +16,7 @@ const Reviews = () => {
     const controller = new AbortController();
     const fetchData = async () => {
       try {
+        if (!movieId) return;
         setLoading(true);
         const reviewsData = await getReviews({ abortController: controller, id: movieId });
         setReviews(reviewsData);
