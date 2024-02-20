@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import css from './NotFoundPage.module.css';
 import gif from '../../assets/404-page-design-animation.gif';
 
-export default function NotFoundPage() {
+const NotFoundPage = () => {
   const navigate = useNavigate();
   const [secondsLeft, setSecondsLeft] = useState(5); // Початкове значення таймера
 
@@ -38,4 +38,6 @@ export default function NotFoundPage() {
       <img src={gif} className={css.gif} alt="404 page design animation gif" />
     </div>
   );
-}
+};
+
+export default NotFoundPage;

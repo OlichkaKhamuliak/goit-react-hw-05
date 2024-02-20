@@ -3,7 +3,7 @@ import imgDefault from '../../assets/filmDefault.png';
 
 const baseUrl = 'https://image.tmdb.org/t/p/w500';
 
-export const MoviesItem = ({ filmName, url }) => {
+const MoviesItem = ({ filmName, url }) => {
   const imageUrl = url ? baseUrl + url : imgDefault;
 
   return (
@@ -13,3 +13,5 @@ export const MoviesItem = ({ filmName, url }) => {
     </div>
   );
 };
+
+export default MoviesItem;

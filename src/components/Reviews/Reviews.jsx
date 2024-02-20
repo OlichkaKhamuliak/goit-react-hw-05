@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import { getReviews } from '../../api';
 import { useParams } from 'react-router-dom';
 import css from './Reviews.module.css';
-import { ReviewsList } from '../ReviewsList/ReviewsList';
-import { Loader } from '../Loader/Loader';
+import ReviewsList from '../ReviewsList/ReviewsList';
+import Loader from '../Loader/Loader';
 
-export const Reviews = () => {
+const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -47,3 +47,5 @@ export const Reviews = () => {
     </div>
   );
 };
+
+export default Reviews;

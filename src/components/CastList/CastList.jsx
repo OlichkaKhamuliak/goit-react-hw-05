@@ -1,7 +1,7 @@
 import defaultPng from '../../assets/person.png';
 import css from './CastList.module.css';
 
-export const CastList = ({ performers }) => {
+const CastList = ({ performers }) => {
   const defaultImg = defaultPng;
   const baseUrl = 'https://image.tmdb.org/t/p/w500';
   return (
@@ -24,3 +24,5 @@ export const CastList = ({ performers }) => {
     </ul>
   );
 };
+
+export default CastList;

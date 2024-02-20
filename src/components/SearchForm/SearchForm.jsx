@@ -3,7 +3,7 @@ import css from './SearchForm.module.css';
 import toast from 'react-hot-toast';
 import { useState } from 'react';
 
-export const SearchForm = ({ onSubmit }) => {
+const SearchForm = ({ onSubmit }) => {
   const [query, setQuery] = useState('');
 
   const handleChange = ({ target: { value } }) => {
@@ -40,3 +40,5 @@ export const SearchForm = ({ onSubmit }) => {
     </div>
   );
 };
+
+export default SearchForm;

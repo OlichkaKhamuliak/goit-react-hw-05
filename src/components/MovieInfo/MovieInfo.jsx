@@ -1,4 +1,3 @@
-const baseUrl = 'https://image.tmdb.org/t/p/w500';
 import { NavLink, Outlet } from 'react-router-dom';
 import css from './MovieInfo.module.css';
 import clsx from 'clsx';
@@ -7,8 +6,9 @@ import imgDefault from '../../assets/filmDefault.png';
 const buildLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.active);
 };
+const baseUrl = 'https://image.tmdb.org/t/p/w500';
 
-export const MovieInfo = ({
+const MovieInfo = ({
   movie: { backdrop_path, original_title, overview, release_date, vote_average, genres },
 }) => {
   const imageUrl = backdrop_path ? baseUrl + backdrop_path : imgDefault;
@@ -73,3 +73,5 @@ export const MovieInfo = ({
     </div>
   );
 };
+
+export default MovieInfo;

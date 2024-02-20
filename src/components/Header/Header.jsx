@@ -7,7 +7,7 @@ const buildLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.active);
 };
 
-export const Header = () => {
+const Header = () => {
   return (
     <div>
       <header>
@@ -34,3 +34,5 @@ export const Header = () => {
     </div>
   );
 };
+
+export default Header;

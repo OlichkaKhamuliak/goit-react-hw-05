@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCredits } from '../../api';
-import { CastList } from '../CastList/CastList';
+import CastList from '../CastList/CastList';
 import css from './Cast.module.css';
-import { Loader } from '../Loader/Loader';
+import Loader from '../Loader/Loader';
 
-export const Cast = () => {
+const Cast = () => {
   const [actors, setActors] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -49,3 +49,5 @@ export const Cast = () => {
     </div>
   );
 };
+
+export default Cast;

@@ -1,6 +1,6 @@
 import css from './ReviewsList.module.css';
 
-export const ReviewsList = ({ feedbacks }) => {
+const ReviewsList = ({ feedbacks }) => {
   return (
     <div>
       <ul className={css.list}>
@@ -14,3 +14,5 @@ export const ReviewsList = ({ feedbacks }) => {
     </div>
   );
 };
+
+export default ReviewsList;

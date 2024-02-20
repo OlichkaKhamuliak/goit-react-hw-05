@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import toast from 'react-hot-toast';
 
-export const ErrorMessage = ({ children }) => {
+const ErrorMessage = ({ children }) => {
   useEffect(() => {
     // Викликаємо toast.error при відображенні компонента, використовуючи setTimeout
     const timeoutId = setTimeout(() => {
@@ -17,3 +17,5 @@ export const ErrorMessage = ({ children }) => {
   // Повертаємо порожній елемент, оскільки сповіщення вже виведено
   return null;
 };
+
+export default ErrorMessage;

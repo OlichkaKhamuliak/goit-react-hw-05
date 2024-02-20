@@ -1,11 +1,13 @@
 import { Route, Routes } from 'react-router-dom';
-import HomePage from '../../pages/HomePage';
-import MoviePage from '../../pages/MoviePage.jsx';
-import { Header } from '../Header/Header';
-import { Cast } from '../Cast/Cast.jsx';
-import { Reviews } from '../Reviews/Reviews.jsx';
-import { SearchMoviePage } from '../../pages/SearchMoviePage.jsx';
-import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage.jsx';
+import { lazy } from 'react';
+
+const HomePage = lazy(() => import('../../pages/HomePage.jsx'));
+const SearchMoviePage = lazy(() => import('../../pages/SearchMoviePage.jsx'));
+const MoviePage = lazy(() => import('../../pages/MoviePage.jsx'));
+const Header = lazy(() => import('../Header/Header.jsx'));
+const Cast = lazy(() => import('../Cast/Cast.jsx'));
+const Reviews = lazy(() => import('../Reviews/Reviews.jsx'));
+const NotFoundPage = lazy(() => import('../../pages/NotFoundPage/NotFoundPage.jsx'));
 
 export const App = () => {
   return (

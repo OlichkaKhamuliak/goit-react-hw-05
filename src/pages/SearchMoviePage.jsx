@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import { searchMovie } from '../api';
-import { SearchForm } from '../components/SearchForm/SearchForm';
+import SearchForm from '../components/SearchForm/SearchForm';
 import { useSearchParams } from 'react-router-dom';
-import { MoviesList } from '../components/MoviesList/MoviesList';
-import { ErrorMessage } from '../components/ErrorMessage/ErrorMessage';
-import { LoadMoreBtn } from '../components/LoadMoreBtn/LoadMoreBtn';
+import MoviesList from '../components/MoviesList/MoviesList';
+import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
+import LoadMoreBtn from '../components/LoadMoreBtn/LoadMoreBtn';
 import { Toaster } from 'react-hot-toast';
 import css from '../components/ErrorMessage/ErrorMessage.module.css';
-import { Loader } from '../components/Loader/Loader';
+import Loader from '../components/Loader/Loader';
 
-export const SearchMoviePage = () => {
+const SearchMoviePage = () => {
   const [searchFilms, setSearchFilm] = useState([]);
   const [page, setPage] = useState(1);
   const [emptyResults, setEmptyResults] = useState(false);
@@ -92,3 +92,5 @@ export const SearchMoviePage = () => {
     </div>
   );
 };
+
+export default SearchMoviePage;
