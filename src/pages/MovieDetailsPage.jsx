@@ -6,7 +6,7 @@ import GoBackBtn from '../components/GoBackBtn/GoBackBtn';
 import Loader from '../components/Loader/Loader';
 import NotFoundPage from './NotFoundPage/NotFoundPage';
 
-const MoviePage = () => {
+const MovieDetailsPage = () => {
   const { movie, loading, error } = useFetchMovie();
   const location = useLocation();
   const goBack = useRef(location?.state?.from ?? '/');
@@ -25,4 +25,4 @@ const MoviePage = () => {
   );
 };
 
-export default MoviePage;
+export default MovieDetailsPage;

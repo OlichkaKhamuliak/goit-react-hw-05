@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
+import { getReviews } from '../../api';
 import { useParams } from 'react-router-dom';
-import { getCredits } from '../../api';
-import CastList from '../CastList/CastList';
-import css from './Cast.module.css';
+import css from './MovieReviews.module.css';
+import ReviewsList from '../ReviewsList/ReviewsList';
 import Loader from '../Loader/Loader';
 
-const Cast = () => {
-  const [actors, setActors] = useState([]);
+const MovieReviews = () => {
+  const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const { movieId } = useParams();
@@ -18,10 +18,10 @@ const Cast = () => {
       try {
         if (!movieId) return;
         setLoading(true);
-        const castData = await getCredits({ abortController: controller, id: movieId });
-        setActors(castData);
+        const reviewsData = await getReviews({ abortController: controller, id: movieId });
+        setReviews(reviewsData);
         setTimeout(() => {
-          if (castData.length === 0) {
+          if (reviewsData.length === 0) {
             setShowNoDataMessage(true);
           }
         }, 0);
@@ -40,15 +40,13 @@ const Cast = () => {
   return (
     <div>
       {loading && <Loader />}
-      {actors.length > 0 && <CastList performers={actors} />}
+      {reviews.length > 0 && <ReviewsList feedbacks={reviews} />}
       {error && <p className={css.error}>{error.message}! Try to Reload the page.</p>}
       {!error && showNoDataMessage && (
-        <p className={css.error}>
-          We`re sorry, but there is no information to display about the actors.
-        </p>
+        <p className={css.error}>No one has left reviews for this movie yet.</p>
       )}
     </div>
   );
 };
 
-export default Cast;
+export default MovieReviews;

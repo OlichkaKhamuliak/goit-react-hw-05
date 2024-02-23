@@ -8,7 +8,7 @@ const buildLinkClass = ({ isActive }) => {
 };
 const baseUrl = 'https://image.tmdb.org/t/p/w500';
 
-const MovieInfo = ({
+const MoviesPage = ({
   movie: { backdrop_path, original_title, overview, release_date, vote_average, genres },
 }) => {
   const imageUrl = backdrop_path ? baseUrl + backdrop_path : imgDefault;
@@ -74,4 +74,4 @@ const MovieInfo = ({
   );
 };
 
-export default MovieInfo;
+export default MoviesPage;
